@@ -67,7 +67,7 @@ def poseEstimation(option: DrawOption):
         cornersFound, cornersOrg = cv.findChessboardCorners(imgGray, (nCols, nRows), None)
 
         if cornersFound:
-            cornersRefined = cv.cornerSubPix(imgGray, cornersOrg, (11, 11), (-1, -1), termCriteria)
+            cornersRefined = cv.cornerSubPix(imgGray, cornersOrg, (6, 6), (-1, -1), termCriteria)
             success, rvecs, tvecs = cv.solvePnP(worldPtsCur, cornersRefined, camMatrix, distCoeff)
 
             if option == DrawOption.AXES:
